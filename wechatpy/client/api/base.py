@@ -10,6 +10,7 @@ class BaseWeChatAPI(object):
     def _get(self, url, **kwargs):
         if getattr(self, 'API_BASE_URL', None):
             kwargs['api_base_url'] = self.API_BASE_URL
+        kargs['verify'] = False
         return self._client.get(url, **kwargs)
 
     def _post(self, url, **kwargs):
